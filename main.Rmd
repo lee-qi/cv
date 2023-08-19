@@ -1,0 +1,123 @@
+---
+name: Qi
+surname: Lee
+position: "PhD Student"
+pronouns: she/her
+address: "School of Aquatic & Fishery Sciences, University of Washington, Seattle, WA, USA"
+www: lee-qi.github.io
+email: "leeqi@uw.edu"
+github: lee-qi
+date: "`r format(Sys.time(), '%B %Y')`"
+output:
+  vitae::awesomecv:
+    page_total: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "PhD in Aquatic & Fishery Sciences", "2019 - Present", "University of Washington", "Seattle, Washington, USA",
+  "MSc in Aquatic & Fishery Sciences", "2014 - 2017", "University of Washington", "Seattle, Washington, USA",
+  "BSc in Marine Science and Biology", "2010 - 2014", "University of Miami", "Coral Gables, Florida, USA",
+  "International Baccalaureate", "2009 - 2010", "Lester B. Pearson United World College of the Pacific", "Victoria, British Columbia, Canada"
+) %>%
+  detailed_entries(what = Degree, when = Year, with = Institution, where = Where)
+```
+
+# Employment
+
+```{r}
+tribble(
+   ~Year, ~Title, ~Employer, ~Desc,
+  "2014 - 2017; 2019 - present", "Graduate Research Assistant", "School of Aquatic & Fishery Sciences, University of Washington", "Mentored and collaborated with fisheriies scientists from China.",
+  "2014 - 2017; 2019 - present", "Graduate Research Assistant", "School of Aquatic & Fishery Sciences, University of Washington", "Assisted with Stock Synthesis workshops (2020, 2023).",
+  "2014 - 2017; 2019 - present", "Graduate Research Assistant", "School of Aquatic & Fishery Sciences, University of Washington", "Co-organised SAFS Quantitative Seminar (Spring 2023)",
+  "2017 - 2019", "Research Scientist", "Sustainable Fisheries Group, University of California, Santa Barbara", "Conducted assessments and management strategy evaluations for fisheries in China, Barbuda, and California.",
+  "2013", "Invasive Species Technician", "National Parks Service", "Designed and conducted SCUBA surveys of invasive lionfish in the Dry Tortugas and the Everglades National Parks."
+)  %>%
+  detailed_entries(what = Title, with = Employer, when = Year, why = Desc)
+```
+
+# Publications
+
+## Journal Articles
+```{r}
+library(dplyr)
+bibliography_entries("pubs.bib") %>%
+  arrange(desc(issued), desc(author$family))
+```
+
+## In Prep.
+```{r}
+library(dplyr)
+bibliography_entries("inprep.bib") %>%
+  arrange(desc(author$family))
+```
+
+
+## Technical Papers
+
+```{r}
+library(dplyr)
+bibliography_entries("techpapers.bib") %>%
+  arrange(desc(issued), desc(author$family))
+```
+
+# Synergistic Activities
+```{r}
+tribble(
+    ~ Year, ~ Organisation, ~ Title, ~ Desc,
+    "2016 - present", "Scientific Committee, South Pacific Regional Fisheries Management Organisation", "Fisheries Stock Assessment Consultant", "Provide technical guidance and assistance in developing the Chilean jack mackerel (Trachurus murphyi) stock assessment",
+    "2014-2016; 2020-2023", "Fisheries Interdisciplinary Network of Students", "Graduate Student Symposium Organiser; Curriculum Committee; Peer Mentor in Peer Mentor Programme", "Organised symposiums and provided a graduate student perspective on the SAFS Curriculum Committee",
+    "November 2020", "Stock Assessment Workshop, Yellow Sea Fisheries Research Institute, Ocean University of China, and University of Washington", "Instructor", "Worked with Chinese assessment scientists and students on quantitative methods for population dynamics",
+    "2018-2019", "Evaluation of Management Strategies in the Chilean Common Sardine and Anchoveta Fisheries, Invited Consultant", "Invited Participant", "Worked with Chilean assessment scientists to prepare Stock Synthesis models for common sardine and anchoveta and provide technical advice",
+    "September 2018", "Introduction to Stock Synthesis Workshop at the Instituto de Investigación Pesquera (Inpesca)", "Instructor", "Worked with Chilean assessment scientists to adapt and construct models for common sardine and southern hake in Stock Synthesis",
+    "September 2018", "Introduction to Stock Synthesis Workshop at the Instituto de Investigación Pesquera (Inpesca)", "Instructor", "Conducted in both English and Spanish",
+    "July 2018", "China-Korea Stock Assessment Training Workshop for the Yellow Sea Large Marine Ecosystem", "Invited Expert", "Provided advice based on stock assessment methods in the U.S. for future joint management of small yellow croaker and blue swimming crab in the Yellow Sea"
+    
+) %>%
+  detailed_entries(what = Title, when = Year, with = Organisation, why = Desc)
+```
+
+## Peer Reviewing Activity
+Journals: Fisheries Research, Journal of Fish Biology, ICES Journal of Marine Science, Frontiers in Marine Science
+
+# Selected Presentations (Oral)
+
+```{r}
+tribble(
+    ~ When, ~ Title, ~ Event, ~ Where,
+    "February 2023", "Do fishers go where the fish go? A retrospective analysis on the pollock fishery in the Eastern Bering Sea", "SAFS Quantitative Seminar", "Seattle, USA",
+
+    "October 2022", "Stock Assessment for Chilean Jack Mackerel.","South Pacific Regional Fisheries Management Organisation Scientific Committee Meeting","Seoul, South Korea",
+
+    "November 2019", "Life history changes and fisheries assessment performance", "Graduate Student Symposium","Seattle, USA",
+
+    "October 2019", "Deconstructing a stock assessment: statistical catch-at-age models", "Stock Assessment Research Project Workshop on Chinese Fisheries Stock Assessments","Seattle, USA"
+) %>% 
+  detailed_entries(what=Title, when=When, with=Event, where=Where)
+```
+
+# Awards
+- FINS Travel Award (Summer 2022)
+- Winner, SAFS Research Derby (2014)
+- Provost’s Honour Roll, University of Miami (2011, 2013)
+- Dean’s List, University of Miami (2010, 2011, 2013)
+- University Scholarship, University of Miami (2010-2014)
+- United World College Scholarship (2008-2010)
+
+# Relevant Coursework
+- BIOST 555: Statistical Methods for Spatial Epidemiology (Winter 2020)
+- BIOST 578: Advanced Spatial Statistics for Public and Global Health (Spring 2020)
+- FISH 507: Designing, implementing, and managing fisheries independent surveys for use in fisheries research, assessment, and management advice (Winter 2021)
+- FISH 576, 577: Applied Stock Assessment (Winter and Spring 2021; 2015)
+- FISH 558: Decision Analysis in Natural Resource Management (Fall 2015)
+- FISH 559: Numerical Computing for Fisheries Assessment and Management (Fall 2014)
